@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { contactSchema } from '../schemas/contactSchema';
@@ -11,6 +11,9 @@ export function useContactForm() {
     mode: 'onTouched',
     defaultValues: { name: '', email: '', message: '', website: '' },
   });
+
+  // useWatch (em vez de form.watch) é compatível com o React Compiler e re-renderiza só aqui.
+  const message = useWatch({ control: form.control, name: 'message' });
 
   const mutation = useMutation({
     mutationFn: async ({ website, ...values }) => {
@@ -26,7 +29,7 @@ export function useContactForm() {
   return {
     register: form.register,
     errors: form.formState.errors,
-    messageLength: form.watch('message')?.length ?? 0,
+    messageLength: message?.length ?? 0,
     submit,
     isSending: mutation.isPending,
     isSuccess: mutation.isSuccess,

@@ -23,6 +23,6 @@ export const contactSchema = z.object({
       MESSAGE_MAX_LENGTH,
       `A mensagem pode ter no máximo ${MESSAGE_MAX_LENGTH} caracteres`,
     ),
-  // Campo isca: pessoas não veem, robôs preenchem. Tratado em useSendContact.
+  // Campo isca: pessoas não veem, robôs preenchem. Tratado em useContactForm.
   website: z.string().optional(),
 });
