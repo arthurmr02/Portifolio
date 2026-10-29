@@ -32,6 +32,22 @@ export const routes = [
             lazy: lazyPage(() => import('../pages/ProjectDetailPage')),
           },
           { path: 'contato', lazy: lazyPage(() => import('../pages/ContactPage')) },
+          {
+            // Área do dono: layout, login e painel são chunks à parte, fora do pacote inicial.
+            lazy: lazyPage(() => import('./AdminLayout')),
+            children: [
+              { path: 'entrar', lazy: lazyPage(() => import('../pages/LoginPage')) },
+              {
+                lazy: lazyPage(() => import('../components/auth/ProtectedRoute')),
+                children: [
+                  {
+                    path: 'painel',
+                    lazy: lazyPage(() => import('../pages/DashboardPage')),
+                  },
+                ],
+              },
+            ],
+          },
           { path: '*', Component: NotFoundPage },
         ],
       },
