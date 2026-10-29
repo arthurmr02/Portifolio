@@ -5,6 +5,12 @@ import RouteErrorPage from '../pages/RouteErrorPage';
 import RootLayout from './RootLayout';
 
 /**
+ * Transforma `() => import('./Pagina')` em uma rota carregada sob demanda.
+ * A página só é baixada quando o visitante navega até ela.
+ */
+const lazyPage = (loader) => async () => ({ Component: (await loader()).default });
+
+/**
  * Mapa de rotas. A Home é carregada junto com o app (é a primeira tela);
  * todo o resto vira um chunk separado. O vercel.json reescreve qualquer
  * caminho para o index.html, então links diretos e F5 funcionam.
@@ -20,6 +26,11 @@ export const routes = [
         ErrorBoundary: RouteErrorPage,
         children: [
           { index: true, Component: HomePage },
+          { path: 'projetos', lazy: lazyPage(() => import('../pages/ProjectsPage')) },
+          {
+            path: 'projetos/:name',
+            lazy: lazyPage(() => import('../pages/ProjectDetailPage')),
+          },
           { path: '*', Component: NotFoundPage },
         ],
       },
