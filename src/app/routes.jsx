@@ -31,6 +31,7 @@ export const routes = [
             path: 'projetos/:name',
             lazy: lazyPage(() => import('../pages/ProjectDetailPage')),
           },
+          { path: 'contato', lazy: lazyPage(() => import('../pages/ContactPage')) },
           { path: '*', Component: NotFoundPage },
         ],
       },
