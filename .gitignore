@@ -1,0 +1,19 @@
+node_modules
+dist
+coverage
+stats.html
+
+# ambiente
+.env
+.env.*
+!.env.example
+
+# editor e sistema
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+*.log
+
+# configuracoes locais do Claude Code
+.claude/settings.local.json
+CLAUDE.local.md
