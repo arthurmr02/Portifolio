@@ -4,8 +4,8 @@ Portfólio de desenvolvimento front-end. Os projetos são lidos direto da API do
 mensagens do formulário de contato chegam por e-mail e ficam salvas em um painel protegido
 por login, e a home tem uma cena 3D interativa carregada sob demanda.
 
-- **Site publicado:** `https://SEU-PROJETO.vercel.app` (preencha após o deploy)
-- **Repositório:** `https://github.com/SEU-USUARIO/portfolio`
+- **Site publicado:** `https://portifolio-kappa-blue-47.vercel.app`
+- **Repositório:** `https://github.com/arthurmr02/Portifolio.git`
 
 ## Funcionalidades
 
