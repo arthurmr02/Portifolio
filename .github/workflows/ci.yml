@@ -1,0 +1,27 @@
+name: CI
+
+# Roda os mesmos checks do desenvolvimento local em todo Pull Request e em todo push na main.
+# O deploy em si é feito pela integração Git da Vercel: cada push na main publica sozinho.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: 0 # sem hooks do Git no CI
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run build
