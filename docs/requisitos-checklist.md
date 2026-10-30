@@ -17,4 +17,4 @@ Onde cada requisito do enunciado foi atendido.
 | 11    | Versionamento           | Conventional Commits (`commitlint.config.js` + Husky), GitHub Flow com `feature/*` e merge `--no-ff`. Descrito no README e no `CLAUDE.md`                                                                                                                      |
 | 12    | Arquitetura             | Pastas por responsabilidade (README), lógica em `hooks/` e `services/`, nomenclatura no `CLAUDE.md`, ESLint + Prettier no pré-commit (`lint-staged`)                                                                                                           |
 | Repo  | Repositório             | `.env` no `.gitignore`, `.env.example`, README completo                                                                                                                                                                                                        |
-| Vídeo | Gravado e Publicado                        
+| Vídeo | Gravado e Publicado     |
