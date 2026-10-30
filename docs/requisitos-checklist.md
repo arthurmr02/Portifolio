@@ -1,0 +1,29 @@
+# Checklist dos requisitos
+
+Onde cada requisito do enunciado foi atendido.
+
+| #     | Requisito               | Onde está                                                                                                                                                                                                                                                      |
+| ----- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Rotas                   | `src/app/routes.jsx` (React Router, `lazy`). Projeto individual em `/projetos/:name` (`ProjectDetailPage`). 404 em `NotFoundPage`; erro inesperado em `RouteErrorPage`; erro de API em `ErrorState`. Deep link e F5: `vercel.json` (rewrite para `index.html`) |
+| 2     | Estados de carregamento | `components/ui/QueryState.jsx` (carregando, erro, vazio) usado por `ProjectGrid`, `MessageList`, `FeaturedPicker`. Skeletons: `ProjectCardSkeleton`. Botão bloqueado e spinner no envio: `Button` com `loading` em `ContactForm`                               |
+| 3     | GitHub                  | `services/github.js` + `hooks/useRepos.js`. Cards com descrição, linguagem, data, tópicos (`ProjectCard`). Limite de requisições tratado (`RATE_LIMIT`)                                                                                                        |
+| 4     | Formulário              | `schemas/contactSchema.js` (mensagem por campo), `hooks/useContactForm.js`, `ContactForm.jsx`. E-mail: `services/email.js` (Formspree). Salvo: `services/messages.js` (Supabase). Feedback de sucesso e erro no próprio formulário                             |
+| 5     | Dashboard               | Login `pages/LoginPage.jsx`; guarda `components/auth/ProtectedRoute.jsx`; mensagens e "marcar como respondida" `MessageList.jsx`; destaques `FeaturedPicker.jsx` + `lib/featured.js`                                                                           |
+| 6     | Preferências            | `contexts/ThemeProvider.jsx` + `lib/theme.js` (localStorage) + script em `index.html` que aplica o tema antes da primeira pintura                                                                                                                              |
+| 7     | Interface               | Responsivo com Tailwind (testado em 390 px e 1280 px). Reuso: `components/ui/*` (Button, Card, Field...). 3D: `HeroScene.jsx` reage ao mouse e à rolagem                                                                                                       |
+| 8     | Performance             | Lighthouse mobile 97 (ver README). Chunks por rota e `import()` do three/Supabase. Imagens com `width`/`height`, `loading="lazy"`, `srcSet`. Skeletons com mesma altura (CLS 0). Cache `staleTime` 10 min em `lib/queryClient.js`. `npm run analyze`           |
+| 9     | Testes                  | `ContactForm.test.jsx`, `contactSchema.test.js` (validação); `ProtectedRoute.test.jsx`, `routes.test.jsx` (bloqueio sem login); mais GitHub, destaques, formatadores e tema                                                                                    |
+| 10    | Deploy                  | Vercel com Git integrado (push na `main` publica). `.github/workflows/ci.yml` roda os checks                                                                                                                                                                   |
+| 11    | Versionamento           | Conventional Commits (`commitlint.config.js` + Husky), GitHub Flow com `feature/*` e merge `--no-ff`. Descrito no README e no `CLAUDE.md`                                                                                                                      |
+| 12    | Arquitetura             | Pastas por responsabilidade (README), lógica em `hooks/` e `services/`, nomenclatura no `CLAUDE.md`, ESLint + Prettier no pré-commit (`lint-staged`)                                                                                                           |
+| Repo  | Repositório             | `.env` no `.gitignore`, `.env.example`, README completo                                                                                                                                                                                                        |
+| Vídeo | Entrevista              | Roteiro em `docs/video-roteiro.md`; harness em `docs/ai-harness.md`                                                                                                                                                                                            |
+
+## O que falta fazer fora do código
+
+- Criar o repositório público no GitHub e dar push (o histórico local já tem commits por funcionalidade)
+- Criar o projeto no Supabase, rodar `supabase/schema.sql`, criar seu usuário
+- Criar o formulário no Formspree
+- Importar o repositório na Vercel e cadastrar as variáveis `VITE_*`
+- Preencher no README os links do site e do repositório
+- Gravar o vídeo e publicar como "não listado" no YouTube
