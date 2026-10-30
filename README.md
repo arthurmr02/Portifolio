@@ -183,7 +183,6 @@ agentes e MCPs que fazem a IA seguir os padrões acima. Detalhes em
 
 ## Documentação extra
 
-- [`docs/requisitos.md`](docs/requisitos.md): enunciado original
 - [`docs/requisitos-checklist.md`](docs/requisitos-checklist.md): onde cada requisito foi atendido
 - [`docs/stack-decisions.md`](docs/stack-decisions.md): opções comparadas, critério e o que foi aceito perder
 - [`docs/ai-harness.md`](docs/ai-harness.md): o harness de IA
