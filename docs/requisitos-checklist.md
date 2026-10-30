@@ -17,13 +17,4 @@ Onde cada requisito do enunciado foi atendido.
 | 11    | Versionamento           | Conventional Commits (`commitlint.config.js` + Husky), GitHub Flow com `feature/*` e merge `--no-ff`. Descrito no README e no `CLAUDE.md`                                                                                                                      |
 | 12    | Arquitetura             | Pastas por responsabilidade (README), lógica em `hooks/` e `services/`, nomenclatura no `CLAUDE.md`, ESLint + Prettier no pré-commit (`lint-staged`)                                                                                                           |
 | Repo  | Repositório             | `.env` no `.gitignore`, `.env.example`, README completo                                                                                                                                                                                                        |
-| Vídeo | Entrevista              | Roteiro em `docs/video-roteiro.md`; harness em `docs/ai-harness.md`                                                                                                                                                                                            |
-
-## O que falta fazer fora do código
-
-- Criar o repositório público no GitHub e dar push (o histórico local já tem commits por funcionalidade)
-- Criar o projeto no Supabase, rodar `supabase/schema.sql`, criar seu usuário
-- Criar o formulário no Formspree
-- Importar o repositório na Vercel e cadastrar as variáveis `VITE_*`
-- Preencher no README os links do site e do repositório
-- Gravar o vídeo e publicar como "não listado" no YouTube
+| Vídeo | Gravado e Publicado                        
